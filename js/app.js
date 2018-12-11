@@ -70,7 +70,7 @@ function memoryGame () {
 		openCards.push(evt.target);
 	}
 	// Leave matching pairs open as solved
-	function openCard() {
+	function pairSolved() {
 		for(const card of openCards) {
 			card.classList.add('open');
 		}
@@ -85,7 +85,8 @@ function memoryGame () {
 			// Check if there is a pair of cards inside of openCards array
 			if (openCards.length > 1) {
 	    		if (openCards[0].childNodes[1].className === openCards[1].childNodes[1].className) {
-	    				
+	    			pairSolved();
+	    			openCards = [];
 	    		}
 	    	}
 		});	
