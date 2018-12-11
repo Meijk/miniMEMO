@@ -67,7 +67,7 @@ function memoryGame () {
 	document.querySelector('.deck').addEventListener('click', function (evt) {
 
 		if (evt.target.className === 'card') {
-			
+			displayCard(evt);
 		}
 
 	});	
