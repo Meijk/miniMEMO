@@ -59,7 +59,9 @@ createNewDeck();
 
 function memoryGame () {
 	const cardDeck = document.querySelector('.deck');
+	const counter = document.querySelector('.moves');
 	let openCards = [];
+	let moves = 0;
 
 	// Event listener for memory cards
 	clickCardListener = function () {
@@ -104,6 +106,7 @@ function memoryGame () {
     			setTimeout(hideCards, 1000);
     			setTimeout(clickCardListener, 1000);
 	    	}
+	    counter.textContent = ++moves;
     	}
 	}	
 }	
