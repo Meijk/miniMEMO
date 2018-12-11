@@ -73,7 +73,11 @@ function memoryGame () {
 			displayCard(evt);
 			pickedCards(evt);
 		}
-
+		if (openCards.length > 1) {
+    		if (openCards[0].childNodes[1].className === openCards[1].childNodes[1].className) {
+    			
+    		}
+    	}
 	});	
 }
 
