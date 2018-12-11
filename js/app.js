@@ -1,5 +1,6 @@
 // Global variables
 const winModal = document.querySelector('.winner');
+const stars = document.querySelectorAll('.fa-star');
 const counter = document.querySelector('.moves');
 let moves = 0;
 
@@ -74,7 +75,7 @@ function memoryGame () {
 		}
 		openCards = [];
 	}
-
+	// Hide stars from screen with raising number of moves
 	function hideStars() {
 
 		const starPanels = document.querySelectorAll('.stars');
@@ -91,12 +92,12 @@ function memoryGame () {
 			}	
 		}
 	}
-
-function unhideStars() {
-	for (const star of stars) {
-		star.parentNode.style.display = "inline-block"
+	// Display stars again as a functionality of restart
+	function unhideStars() {
+		for (const star of stars) {
+			star.parentNode.style.display = "inline-block"
+		}
 	}
-}
 
 	
 	clickCardListener();
@@ -119,7 +120,6 @@ function unhideStars() {
 	    // Update moves counter
 	    counter.textContent = ++moves;
     	}
-
     	// Hide stars according to game progress
     	hideStars();
 
