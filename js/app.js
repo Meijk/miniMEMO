@@ -1,6 +1,9 @@
 // A list that holds all cards
 const cardList = document.querySelectorAll('.card');
-
+const cardListArray = [];
+for (const card of cardList) {
+	cardListArray.push(card);
+}
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -8,13 +11,7 @@ const cardList = document.querySelectorAll('.card');
  *   - add each card's HTML to the page
  */
 // Shuffle function from http://stackoverflow.com/a/2450976
-
-function createNewDeck() {
-
-	const cardListShuffled = shuffle(cardList);
-	const newDeck = document.createElement('ul');
-
-	function shuffle(array) {
+function shuffle(array) {
 	    var currentIndex = array.length, temporaryValue, randomIndex;
 
 	    while (currentIndex !== 0) {
@@ -26,7 +23,12 @@ function createNewDeck() {
 	    }
 
     return array;
-	}
+}
+
+function createNewDeck() {
+
+	const cardListShuffled = shuffle(cardListArray);
+	const newDeck = document.createElement('ul');
 
 	// Create HTML for each new card
 	for (const card of cardListShuffled) {
