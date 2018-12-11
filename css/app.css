@@ -145,3 +145,27 @@ h1 {
 .display-modal {
     display: block;
 }
+
+.stars-modal {
+    font-size: 5em;
+    color: gold;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.stars-modal li {
+    display: inline-block;
+}
+
+.btn--close {
+    font-size: 2em;
+}
+
+.rating > li {
+    list-style-type: none;
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+}
+
