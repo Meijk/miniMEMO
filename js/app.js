@@ -74,6 +74,30 @@ function memoryGame () {
 		}
 		openCards = [];
 	}
+
+	function hideStars() {
+
+		const starPanels = document.querySelectorAll('.stars');
+
+		for (const starPanel of starPanels) {
+			if(moves >= 1 && moves < 3) {
+					starPanel.children[0].style.display = 'none';
+			}
+			if(moves >= 3 && moves < 5) {
+					starPanel.children[1].style.display = 'none';
+			}
+			if(moves >= 5) {
+					starPanel.children[2].style.display = 'none';
+			}	
+		}
+	}
+
+function unhideStars() {
+	for (const star of stars) {
+		star.parentNode.style.display = "inline-block"
+	}
+}
+
 	
 	clickCardListener();
 		// Event delegation for clicked card
@@ -95,6 +119,10 @@ function memoryGame () {
 	    // Update moves counter
 	    counter.textContent = ++moves;
     	}
+
+    	// Hide stars according to game progress
+    	hideStars();
+
     	// Display modal if all cards are open
 		if (document.querySelectorAll(".show").length === cardList.length) {	
 			winModal.classList.add('display-modal');
@@ -120,13 +148,13 @@ for (button of refreshButton) {
 		
 		const matchingCards = document.querySelectorAll('.card');
 		
-		/*for (const star of stars) {
+		for (const star of stars) {
 			star.style.display = 'block';
-		}*/
+		}
 		for(const card of matchingCards) {
 			card.classList.remove('show');
 			card.classList.remove('open');
-		}
+		} 
 		winModal.classList.remove('display-modal');
 		counter.textContent = 0;
 		memoryGame();
