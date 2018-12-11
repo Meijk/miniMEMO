@@ -107,3 +107,41 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+/*
+ * Styles for winner modal
+ */
+.winner {
+    display: none;
+}
+
+.winner__backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.winner__body {
+    position: absolute;
+    top: 25vh;
+    left: 25vw;
+    height: 50vh;
+    width: 50vw;
+    background-color: #fff;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.winner__body > .score-panel {
+    text-align: center;
+}
+
+.display-modal {
+    display: block;
+}
