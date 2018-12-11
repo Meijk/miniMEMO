@@ -58,9 +58,13 @@ createNewDeck();
  */
 
 function memoryGame () {
-	// List of cards currently visible
+	const cardDeck = document.querySelector('.deck');
 	let openCards = [];
 
+	// Event listener for memory cards
+	clickCardListener = function () {
+		cardDeck.addEventListener('click', clickHandler)
+	}
 	// Show targeted cards' symbols
 	function displayCard (evt) {
 		evt.target.classList.add('show');
@@ -75,22 +79,34 @@ function memoryGame () {
 			card.classList.add('open');
 		}
 	}
+	// Hide currently opened cards
+	function hideCards() {
+		for(const card of openCards) {
+			card.classList.remove('show');
+		}
+		openCards = [];
+	}
 	
-	document.querySelector('.deck').addEventListener('click', function (evt) {
+	clickCardListener();
 		// Event delegation for clicked card
+	function clickHandler (evt) {
 		if (evt.target.className === 'card') {
 			displayCard(evt);
 			pickedCards(evt);
 		}
-			// Check if there is a pair of cards inside of openCards array
-			if (openCards.length > 1) {
-	    		if (openCards[0].childNodes[1].className === openCards[1].childNodes[1].className) {
-	    			pairSolved();
-	    			openCards = [];
-	    		}
+		// Check if there is a pair of cards inside of openCards array
+		if (openCards.length > 1) {
+    		if (openCards[0].childNodes[1].className === openCards[1].childNodes[1].className) {
+    			pairSolved();
+    			openCards = [];
+    		} else {
+    			cardDeck.removeEventListener('click', clickHandler);
+    			setTimeout(hideCards, 1000);
+    			setTimeout(clickCardListener, 1000);
 	    	}
-		});	
-}
+    	}
+	}	
+}	
 
 memoryGame();
 
