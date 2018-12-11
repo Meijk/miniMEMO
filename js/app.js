@@ -38,7 +38,7 @@ function createNewDeck() {
 		// Add card to new deck
 		newDeck.appendChild(newCard);
 	}
-	// Detach old deck from the contain and attach new
+	// Detach old deck from the container and attach new
 	document.querySelector('.deck').remove();
 	newDeck.classList.add('deck');
 	document.querySelector('.container').appendChild(newDeck);
