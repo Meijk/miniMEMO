@@ -69,6 +69,7 @@ function memoryGame () {
 
 		if (evt.target.className === 'card') {
 			displayCard(evt);
+			pickedCards(evt);
 		}
 
 	});	
