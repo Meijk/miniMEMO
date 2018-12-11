@@ -1,15 +1,15 @@
+// Global variables
+const winModal = document.querySelector('.winner');
+const counter = document.querySelector('.moves');
+let moves = 0;
+
 // A list that holds all cards
 const cardList = document.querySelectorAll('.card');
 const cardListArray = [];
 for (const card of cardList) {
 	cardListArray.push(card);
 }
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
 	    var currentIndex = array.length, temporaryValue, randomIndex;
@@ -44,14 +44,10 @@ function createNewDeck() {
 	document.querySelector('.container').appendChild(newDeck);
 }
 
-createNewDeck();
-
 function memoryGame () {
+	createNewDeck();
 	const cardDeck = document.querySelector('.deck');
-	const counter = document.querySelector('.moves');
-	const winModal = document.querySelector('.winner');
 	let openCards = [];
-	let moves = 0;
 
 	// Event listener for memory cards
 	clickCardListener = function () {
@@ -109,4 +105,31 @@ function memoryGame () {
 
 memoryGame();
 
+// Close button functionality
+const closeButton = document.querySelector('.btn--close');
+closeButton.addEventListener('click', function (evt) {
+	evt.preventDefault();
+	winModal.classList.remove('display-modal');
+});
+
+// Refresh button functionality
+const refreshButton = document.querySelectorAll('.restart');
+
+for (button of refreshButton) {
+	button.addEventListener('click', function () {
+		
+		const matchingCards = document.querySelectorAll('.card');
+		
+		/*for (const star of stars) {
+			star.style.display = 'block';
+		}*/
+		for(const card of matchingCards) {
+			card.classList.remove('show');
+			card.classList.remove('open');
+		}
+		winModal.classList.remove('display-modal');
+		counter.textContent = 0;
+		memoryGame();
+	});
+}
 
