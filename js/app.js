@@ -1,6 +1,5 @@
 // A list that holds all cards
 const cardList = document.querySelectorAll('.card');
-		console.log(cardList);
 
 /*
  * Display the cards on the page
@@ -13,7 +12,6 @@ const cardList = document.querySelectorAll('.card');
 function createNewDeck() {
 
 	const cardListShuffled = shuffle(cardList);
-		console.log(cardListShuffled);
 	const newDeck = document.createElement('ul');
 
 	function shuffle(array) {
@@ -63,6 +61,9 @@ function memoryGame () {
 	function displayCard (evt) {
 		evt.target.classList.add('show');
 	}
+	function pickedCards(evt) {
+		openCards.push(evt.target);
+	}
 	
 	document.querySelector('.deck').addEventListener('click', function (evt) {
 
@@ -72,5 +73,7 @@ function memoryGame () {
 
 	});	
 }
+
+memoryGame();
 
 
