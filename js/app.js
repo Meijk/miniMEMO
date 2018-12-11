@@ -1,5 +1,6 @@
 // A list that holds all cards
 const cardList = document.querySelectorAll('.card');
+		console.log(cardList);
 
 /*
  * Display the cards on the page
@@ -7,22 +8,43 @@ const cardList = document.querySelectorAll('.card');
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+function createNewDeck() {
+
+	const cardListShuffled = shuffle(cardList);
+		console.log(cardListShuffled);
+	const newDeck = document.createElement('ul');
+
+	function shuffle(array) {
+	    var currentIndex = array.length, temporaryValue, randomIndex;
+
+	    while (currentIndex !== 0) {
+	        randomIndex = Math.floor(Math.random() * currentIndex);
+	        currentIndex -= 1;
+	        temporaryValue = array[currentIndex];
+	        array[currentIndex] = array[randomIndex];
+	        array[randomIndex] = temporaryValue;
+	    }
 
     return array;
+	}
+
+	// Create HTML for each new card
+	for (const card of cardListShuffled) {
+		const newCard = document.createElement('li');
+		newCard.classList.add('card');
+		newCard.innerHTML = card.innerHTML;
+		// Add card to new deck
+		newDeck.appendChild(newCard);
+	}
+	// Detach old deck from the contain and attach new
+	document.querySelector('.deck').remove();
+	newDeck.classList.add('deck');
+	document.querySelector('.container').appendChild(newDeck);
 }
 
+createNewDeck();
 
 /*
  * set up the event listener for a card. If a card is clicked:
