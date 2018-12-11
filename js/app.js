@@ -58,27 +58,37 @@ createNewDeck();
  */
 
 function memoryGame () {
+	// List of cards currently visible
 	let openCards = [];
 
+	// Show targeted cards' symbols
 	function displayCard (evt) {
 		evt.target.classList.add('show');
 	}
+	// Push targeted card to array
 	function pickedCards(evt) {
 		openCards.push(evt.target);
 	}
+	// Leave matching pairs open as solved
+	function openCard() {
+		for(const card of openCards) {
+			card.classList.add('open');
+		}
+	}
 	
 	document.querySelector('.deck').addEventListener('click', function (evt) {
-
+		// Event delegation for clicked card
 		if (evt.target.className === 'card') {
 			displayCard(evt);
 			pickedCards(evt);
 		}
-		if (openCards.length > 1) {
-    		if (openCards[0].childNodes[1].className === openCards[1].childNodes[1].className) {
-    			
-    		}
-    	}
-	});	
+			// Check if there is a pair of cards inside of openCards array
+			if (openCards.length > 1) {
+	    		if (openCards[0].childNodes[1].className === openCards[1].childNodes[1].className) {
+	    				
+	    		}
+	    	}
+		});	
 }
 
 memoryGame();
