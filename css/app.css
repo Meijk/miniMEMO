@@ -72,7 +72,7 @@ h1 {
 }
 
 .deck .card.show {
-    font-size: 33px;
+    font-size: 1.5em;
 }
 
 .deck .card.match {
@@ -196,6 +196,9 @@ h1 {
         height: 85px;
         width: 85px;    
     }
+    .deck .card.show {
+        font-size: 1.5em;
+    }
 }
 
 @media screen and (min-width: 500px) {
@@ -208,6 +211,9 @@ h1 {
         height: 100px;
         width: 100px;    
     }
+    .deck .card.show {
+        font-size: 1.8em;
+    }
 }
 
 @media screen and (min-width: 700px) {
@@ -219,5 +225,8 @@ h1 {
     .deck .card {
         height: 125px;
         width: 125px;    
+    }
+    .deck .card.show {
+        font-size: 2em;
     }
 }
