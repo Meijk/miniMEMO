@@ -88,12 +88,14 @@ h1 {
  */
 
 .score-panel {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    padding: 1em 2em;
+    padding: 0.5em 2em;
+    font-size: 1.2em;
 }
 
 .score-panel p {
@@ -113,8 +115,11 @@ h1 {
 }
 
 .score-panel .restart {
-    align-self: flex-end;
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
     cursor: pointer;
+    font-size: 2em;
 }
 
 /*
@@ -196,6 +201,9 @@ h1 {
 }
 
 @media screen and (min-width: 400px) {
+    .score-panel {
+        font-size: 1.5em;
+    }
     .deck {
         width: 400px;
         min-height: 420px;
