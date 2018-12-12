@@ -38,22 +38,22 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 300px;
+    min-height: 320px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 8px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 3em;
+    margin: 2em 0 3em 0;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
+    height: 60px;
+    width: 60px;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -164,24 +164,60 @@ h1 {
 }
 
 .btn--close {
-  position: absolute;
-  right: 0.3em;
-  top: 0.3em;
-  font-weight: 1000;
-  cursor: pointer;
-  font-size: 2em;
-  height: 1em;
-  width: 1em;
-  text-indent: 10em;
-  overflow: hidden;
-  border: 0;
+    position: absolute;
+    right: 0.3em;
+    top: 0.3em;
+    font-weight: 1000;
+    cursor: pointer;
+    font-size: 2em;
+    height: 1em;
+    width: 1em;
+    text-indent: 10em;
+    overflow: hidden;
+    border: 0;
 }
 
 .btn--close::after {
-  position: absolute;
-  line-height: 0.5;
-  top: 0.2em;
-  left: 0.1em;
-  text-indent: 0;
-  content: "\00D7";
+    position: absolute;
+    line-height: 0.5;
+    top: 0.2em;
+    left: 0.1em;
+    text-indent: 0;
+    content: "\00D7";
+}
+
+@media screen and (min-width: 400px) {
+    .deck {
+        width: 400px;
+        min-height: 420px;
+        padding: 1em;
+    }
+    .deck .card {
+        height: 85px;
+        width: 85px;    
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .deck {
+        width: 500px;
+        min-height: 500px;
+        padding: 1.5em;
+    }
+    .deck .card {
+        height: 100px;
+        width: 100px;    
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .deck {
+        width: 660px;
+        min-height: 680px;
+        padding: 2em;
+    }
+    .deck .card {
+        height: 125px;
+        width: 125px;    
+    }
 }
