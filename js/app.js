@@ -4,10 +4,10 @@ const stars = document.querySelectorAll('.fa-star');
 const counter = document.querySelector('.moves');
 const stopWatch = document.querySelector('.timer');
 let moves = 0;
-var count = 0; 
-var clearTime; 
-var seconds = 0, minutes = 0; 
-var clearState; 
+var count = 0;
+var clearTime;
+var seconds = 0, minutes = 0;
+var clearState;
 var secs, mins;
 
 // A list that holds all cards
@@ -97,7 +97,7 @@ function memoryGame () {
 			}
 			if(moves >= 18) {
 					starPanel.children[2].style.display = 'none';
-			}	
+			}
 		}
 	}
 	// Display stars again as a functionality of restart
@@ -107,7 +107,7 @@ function memoryGame () {
 		}
 	}
 
-	
+
 	clickCardListener();
 	// Event delegation for clicked card
 	function clickHandler (evt) {
@@ -132,7 +132,7 @@ function memoryGame () {
     	hideStars();
 
     	// Display modal if all cards are open
-		if (document.querySelectorAll(".show").length === cardList.length) {	
+		if (document.querySelectorAll(".show").length === cardList.length) {
 			winModal.classList.add('display-modal');
 			document.querySelector('#totalScore').textContent = `${moves}`;
 			document.querySelector('#sec').textContent = `${secs}`;
@@ -142,7 +142,7 @@ function memoryGame () {
 			stopTimer();
 		}
 	}
-}	
+}
 
 memoryGame();
 
@@ -158,16 +158,16 @@ const refreshButton = document.querySelectorAll('.restart');
 
 for (button of refreshButton) {
 	button.addEventListener('click', function () {
-		
+
 		const matchingCards = document.querySelectorAll('.card');
-		
+
 		for (const star of stars) {
 			star.style.display = 'block';
 		}
 		for(const card of matchingCards) {
 			card.classList.remove('show');
 			card.classList.remove('open');
-		} 
+		}
 		winModal.classList.remove('display-modal');
 		counter.textContent = 0;
 		stopTimer();
@@ -177,28 +177,28 @@ for (button of refreshButton) {
 
 // Timer adapted from https://www.ostraining.com/blog/coding/stopwatch/
 
-function startTimer () { 
-	/* check if seconds is equal to 60 and add a +1 to minutes, and set seconds to 0 */ 
-	if ( seconds === 60 ) { seconds = 0; minutes = minutes + 1; } 
-	/* you use the javascript tenary operator to format how the minutes 
-	should look and add 0 to minutes if less than 10 */ 
-	secs = ( seconds < 10 ) ? ( '0' + seconds ) : ( seconds ); 
-	mins = ( minutes < 10 ) ? ( '0' + minutes + ': ' ) : ( minutes + ': ' ); 
-	// display the stopwatch var x = document .getElementById("timer"); 
-	stopWatch.innerHTML = mins + secs; 
-	/* call the seconds counter after displaying the stop watch and increment seconds by +1 to keep it counting */ 
-	seconds++; 
-	/* call the setTimeout( ) to keep the stop watch alive ! */ 
-	clearTime = setTimeout( "startTimer()", 1000 ); 
+function startTimer () {
+	/* check if seconds is equal to 60 and add a +1 to minutes, and set seconds to 0 */
+	if ( seconds === 60 ) { seconds = 0; minutes = minutes + 1; }
+	/* you use the javascript tenary operator to format how the minutes
+	should look and add 0 to minutes if less than 10 */
+	secs = ( seconds < 10 ) ? ( '0' + seconds ) : ( seconds );
+	mins = ( minutes < 10 ) ? ( '0' + minutes + ': ' ) : ( minutes + ': ' );
+	// display the stopwatch var x = document .getElementById("timer");
+	stopWatch.innerHTML = mins + secs;
+	/* call the seconds counter after displaying the stop watch and increment seconds by +1 to keep it counting */
+	seconds++;
+	/* call the setTimeout( ) to keep the stop watch alive ! */
+	clearTime = setTimeout( "startTimer()", 1000 );
 }
 
 function stopTimer () {
 	if ( seconds !== 0 || minutes !== 0 || hours !== 0 ) {
 		var time = mins + secs;
-		seconds = 0; 
-		minutes = 0; 
-		hours = 0; 
-		secs = '0' + seconds; 
+		seconds = 0;
+		minutes = 0;
+		hours = 0;
+		secs = '0' + seconds;
 		mins = '0' + minutes + ': ';
 		stopWatch.innerHTML = time;
 		clearTimeout(clearTime);
