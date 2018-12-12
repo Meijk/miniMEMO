@@ -103,7 +103,7 @@ function memoryGame () {
 	// Display stars again as a functionality of restart
 	function unhideStars() {
 		for (const star of stars) {
-			star.parentNode.style.display = "inline-block"
+			star.parentNode.style.display = 'inline-block';
 		}
 	}
 
@@ -132,7 +132,7 @@ function memoryGame () {
     	hideStars();
 
     	// Display modal if all cards are open
-		if (document.querySelectorAll(".show").length === cardList.length) {
+		if (document.querySelectorAll('.show').length === cardList.length) {
 			winModal.classList.add('display-modal');
 			document.querySelector('#totalScore').textContent = `${moves}`;
 			document.querySelector('#sec').textContent = `${secs}`;
@@ -179,25 +179,24 @@ for (button of refreshButton) {
 
 function startTimer () {
 	/* check if seconds is equal to 60 and add a +1 to minutes, and set seconds to 0 */
-	if ( seconds === 60 ) { seconds = 0; minutes = minutes + 1; }
+	if (seconds === 60) {seconds = 0; minutes = minutes + 1}
 	/* you use the javascript tenary operator to format how the minutes
 	should look and add 0 to minutes if less than 10 */
-	secs = ( seconds < 10 ) ? ( '0' + seconds ) : ( seconds );
-	mins = ( minutes < 10 ) ? ( '0' + minutes + ': ' ) : ( minutes + ': ' );
+	secs = (seconds < 10) ? ('0' + seconds) : (seconds);
+	mins = (minutes < 10) ? ('0' + minutes + ': ') : (minutes + ': ');
 	// display the stopwatch var x = document .getElementById("timer");
 	stopWatch.innerHTML = mins + secs;
 	/* call the seconds counter after displaying the stop watch and increment seconds by +1 to keep it counting */
 	seconds++;
 	/* call the setTimeout( ) to keep the stop watch alive ! */
-	clearTime = setTimeout( "startTimer()", 1000 );
+	clearTime = setTimeout('startTimer()', 1000);
 }
 
 function stopTimer () {
-	if ( seconds !== 0 || minutes !== 0 || hours !== 0 ) {
-		var time = mins + secs;
+	if (seconds !== 0 || minutes !== 0) {
+		let time = mins + secs;
 		seconds = 0;
 		minutes = 0;
-		hours = 0;
 		secs = '0' + seconds;
 		mins = '0' + minutes + ': ';
 		stopWatch.innerHTML = time;
