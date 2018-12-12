@@ -89,10 +89,10 @@ function memoryGame () {
 		const starPanels = document.querySelectorAll('.stars');
 
 		for (const starPanel of starPanels) {
-			if(moves >= 12 && moves < 15) {
+			if(moves >= 13 && moves < 16) {
 					starPanel.children[0].style.display = 'none';
 			}
-			if(moves >= 15 && moves < 18) {
+			if(moves >= 16 && moves < 18) {
 					starPanel.children[1].style.display = 'none';
 			}
 			if(moves >= 18) {
