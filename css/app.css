@@ -137,17 +137,22 @@ h1 {
 }
 
 .winner__body {
-    position: fixed;
-    top: 25vh;
-    left: 25vw;
-    height: 50vh;
-    width: 50vw;
-    background-color: #fff;
-    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 25vh;
+    left: 5vw;
+    height: 50vh;
+    width: 90vw;
+    background-color: #fff;
+    z-index: 10;
+    padding: 0.5em;
+}
+
+.winner__body p {
+    text-align: center;
 }
 
 .winner__body > .score-panel {
@@ -159,7 +164,7 @@ h1 {
 }
 
 .stars-modal {
-    font-size: 5em;
+    font-size: 3em;
     color: gold;
     padding: 0;
     margin: 0;
@@ -172,15 +177,19 @@ h1 {
 
 .btn--restart {
     font-size: 3em;
+    background-color: transparent;
+    border: none;
 }
 
 .btn--close {
     position: absolute;
-    right: 0.3em;
-    top: 0.3em;
+    right: 0;
+    top: -1.3em;
     font-weight: 1000;
     cursor: pointer;
-    font-size: 2em;
+    font-size: 3em;
+    color: #fff;
+    background-color: transparent;
     height: 1em;
     width: 1em;
     text-indent: 10em;
@@ -191,8 +200,8 @@ h1 {
 .btn--close::after {
     position: absolute;
     line-height: 0.5;
-    top: 0.2em;
-    left: 0.1em;
+    top: 0;
+    left: 0;
     text-indent: 0;
     content: "\00D7";
 }
@@ -226,5 +235,21 @@ h1 {
     }
     .deck .card.show {
         font-size: 2em;
+    }
+    .winner__body {
+        top: 20vh;
+        left: 20vw;
+        height: 50vh;
+        width: 60vw;
+        padding: 0.5em;
+    }
+    .btn--close {
+        position: absolute;
+        right: -0.2em;
+        top: 0.2em;
+        color: #000;
+    }
+    .stars-modal {
+        font-size: 5em;
     }
 }
