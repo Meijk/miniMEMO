@@ -6,7 +6,7 @@ const stopWatch = document.querySelector('.timer');
 let moves = 0;
 var count = 0; 
 var clearTime; 
-var seconds = 0, minutes = 0, hours = 0; 
+var seconds = 0, minutes = 0; 
 var clearState; 
 var secs, mins;
 
@@ -135,6 +135,8 @@ function memoryGame () {
 		if (document.querySelectorAll(".show").length === cardList.length) {	
 			winModal.classList.add('display-modal');
 			document.querySelector('#totalScore').textContent = `${moves}`;
+			document.querySelector('#sec').textContent = `${secs}`;
+			document.querySelector('#min').textContent = `${mins}`;
 			//Empty moves counter
 			moves = 0;
 			stopTimer();
