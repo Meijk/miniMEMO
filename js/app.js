@@ -2,7 +2,13 @@
 const winModal = document.querySelector('.winner');
 const stars = document.querySelectorAll('.fa-star');
 const counter = document.querySelector('.moves');
+const stopWatch = document.querySelector('.timer');
 let moves = 0;
+var count = 0; 
+var clearTime; 
+var seconds = 0, minutes = 0, hours = 0; 
+var clearState; 
+var secs, mins;
 
 // A list that holds all cards
 const cardList = document.querySelectorAll('.card');
@@ -50,6 +56,7 @@ function memoryGame () {
 	const cardDeck = document.querySelector('.deck');
 	let openCards = [];
 	unhideStars();
+	startTimer();
 
 	// Event listener for memory cards
 	clickCardListener = function () {
@@ -130,6 +137,7 @@ function memoryGame () {
 			document.querySelector('#totalScore').textContent = `${moves}`;
 			//Empty moves counter
 			moves = 0;
+			stopTimer();
 		}
 	}
 }	
@@ -164,3 +172,32 @@ for (button of refreshButton) {
 	});
 }
 
+// Timer adapted from https://www.ostraining.com/blog/coding/stopwatch/
+
+function startTimer () { 
+	/* check if seconds is equal to 60 and add a +1 to minutes, and set seconds to 0 */ 
+	if ( seconds === 60 ) { seconds = 0; minutes = minutes + 1; } 
+	/* you use the javascript tenary operator to format how the minutes 
+	should look and add 0 to minutes if less than 10 */ 
+	secs = ( seconds < 10 ) ? ( '0' + seconds ) : ( seconds ); 
+	mins = ( minutes < 10 ) ? ( '0' + minutes + ': ' ) : ( minutes + ': ' ); 
+	// display the stopwatch var x = document .getElementById("timer"); 
+	stopWatch.innerHTML = mins + secs; 
+	/* call the seconds counter after displaying the stop watch and increment seconds by +1 to keep it counting */ 
+	seconds++; 
+	/* call the setTimeout( ) to keep the stop watch alive ! */ 
+	clearTime = setTimeout( "startTimer()", 1000 ); 
+}
+
+function stopTimer () {
+	if ( seconds !== 0 || minutes !== 0 || hours !== 0 ) {
+		var time = mins + secs;
+		seconds = 0; 
+		minutes = 0; 
+		hours = 0; 
+		secs = '0' + seconds; 
+		mins = '0' + minutes + ': ';
+		stopWatch.innerHTML = time;
+		clearTimeout(clearTime);
+	}
+}
