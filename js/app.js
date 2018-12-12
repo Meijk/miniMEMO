@@ -168,6 +168,7 @@ for (button of refreshButton) {
 		} 
 		winModal.classList.remove('display-modal');
 		counter.textContent = 0;
+		stopTimer();
 		memoryGame();
 	});
 }
