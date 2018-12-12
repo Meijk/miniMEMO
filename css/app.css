@@ -113,6 +113,7 @@ h1 {
  */
 .winner {
     display: none;
+    position: relative;
 }
 
 .winner__backdrop {
@@ -125,7 +126,7 @@ h1 {
 }
 
 .winner__body {
-    position: absolute;
+    position: fixed;
     top: 25vh;
     left: 25vw;
     height: 50vh;
@@ -158,14 +159,29 @@ h1 {
     display: inline-block;
 }
 
+.btn--restart {
+    font-size: 3em;
+}
+
 .btn--close {
-    font-size: 2em;
+  position: absolute;
+  right: 0.3em;
+  top: 0.3em;
+  font-weight: 1000;
+  cursor: pointer;
+  font-size: 2em;
+  height: 1em;
+  width: 1em;
+  text-indent: 10em;
+  overflow: hidden;
+  border: 0;
 }
 
-.rating > li {
-    list-style-type: none;
-    display: inline-block;
-    width: 5em;
-    height: 5em;
+.btn--close::after {
+  position: absolute;
+  line-height: 0.5;
+  top: 0.2em;
+  left: 0.1em;
+  text-indent: 0;
+  content: "\00D7";
 }
-
