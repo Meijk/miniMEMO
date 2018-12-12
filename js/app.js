@@ -49,6 +49,7 @@ function memoryGame () {
 	createNewDeck();
 	const cardDeck = document.querySelector('.deck');
 	let openCards = [];
+	unhideStars();
 
 	// Event listener for memory cards
 	clickCardListener = function () {
@@ -101,7 +102,7 @@ function memoryGame () {
 
 	
 	clickCardListener();
-		// Event delegation for clicked card
+	// Event delegation for clicked card
 	function clickHandler (evt) {
 		if (evt.target.className === 'card') {
 			displayCard(evt);
@@ -127,6 +128,8 @@ function memoryGame () {
 		if (document.querySelectorAll(".show").length === cardList.length) {	
 			winModal.classList.add('display-modal');
 			document.querySelector('#totalScore').textContent = `${moves}`;
+			//Empty moves counter
+			moves = 0;
 		}
 	}
 }	
