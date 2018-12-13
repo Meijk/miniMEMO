@@ -32,6 +32,7 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     font-size: 2em;
+    text-align: center;
 }
 
 /*
@@ -118,6 +119,7 @@ h1 {
     right: 0.5em;
     cursor: pointer;
     font-size: 2em;
+    color: rgba(40, 182, 176, 1.00);
 }
 
 /*
@@ -226,14 +228,35 @@ h1 {
     }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) and (orientation: landscape) {
     .container {
-        max-width: 700px;
-        margin: 0 auto;
+        display: grid;
+        grid-template-rows: 10vw 1fr;
+        grid-template-columns: 20vw 1fr 20vw;
+        grid-gap: 1em;
+    }
+    header {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+    }
+    .score-panel {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    .score-panel .restart {
+        position: static;
+        order: -1;
     }
     .deck {
-        width: 600px;
-        height: 600px;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        width: 80vh;
+        height: 80vh;
+        align-self: center;
+        justify-self: center;
+        margin: 0;
     }
     .deck .card.show {
         font-size: 2em;
