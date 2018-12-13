@@ -220,6 +220,9 @@ h1 {
 }
 
 @media screen and (min-width: 500px) {
+    h1 {
+        font-size: 2.5em;
+    }
     .deck {
         grid-gap: 0.7em;
     }
@@ -238,6 +241,9 @@ h1 {
     header {
         grid-column: 1 / 4;
         grid-row: 1 / 2;
+    }
+    h1 {
+        font-size: 3em;
     }
     .score-panel {
         grid-column: 1 / 2;
