@@ -6,4 +6,4 @@ A simple memory matching game. The goal of the game is to match 8 pairs of cards
 
 ## Dependencies
 
-This repository contains HTML, CSS and JavaScript the matching game.
+This repository contains HTML, CSS and JavaScript for the matching game.
